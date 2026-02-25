@@ -1,0 +1,27 @@
+{
+    "name": "@dotmarking/honest-sign-api",
+    "version": "0.0.1",
+    "main": "index.js",
+    "scripts": {
+        "build": "tsc -p tsconfig.json"
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dotmarking/honest-sign-api.git"
+    },
+    "files": [
+        "dist"
+    ],
+    "dependencies": {
+        "@nestjs/axios": "^4.0.1",
+        "@nestjs/common": "^11.1.14",
+        "@nestjs/config": "^4.0.3",
+        "@nestjs/microservices": "^11.1.14"
+    },
+    "devDependencies": {
+        "@types/node": "^25.3.0"
+    }
+}
