@@ -1,2 +1,2 @@
-export * from './card.module';
-export * from './card.service';
+export * from './api-card.module';
+export * from './api-card.service';
