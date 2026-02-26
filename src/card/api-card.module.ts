@@ -17,7 +17,7 @@ export class CardApiModule {
                 }),
             ],
             providers: [CardApiService],
-            exports: [CardApiService],
+            exports: [CardApiService, HttpModule],
         };
     }
 }
