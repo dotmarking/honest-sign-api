@@ -8,11 +8,9 @@ export class CardApiModule {
         return {
             module: CardApiModule,
             imports: [
-                HttpModule.registerAsync({
-                    useFactory: () => ({
-                        baseURL: 'https://апи.национальный-каталог.рф',
-                        timeout: 5000,
-                    }),
+                HttpModule.register({
+                    baseURL: 'https://апи.национальный-каталог.рф',
+                    timeout: 5000,
                 }),
             ],
             providers: [CardApiService],
