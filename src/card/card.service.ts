@@ -19,7 +19,9 @@ import {
     GetOwnerCardsInfoRequest,
     SendCardForModerationRequest,
 } from './interface/request/card.interface';
+import { Injectable } from '@nestjs/common';
 
+@Injectable()
 export class CardService {
     public constructor(private readonly httpService: HttpService) {}
 
@@ -82,12 +84,9 @@ export class CardService {
 
     // 3.3.3
     public getProductionCountries(honestSignToken: string) {
-        console.log(honestSignToken);
-        const a = this.httpService.get<GetProductionCountries>('/v3/dictionary/isocountry', {
+        return this.httpService.get<GetProductionCountries>('/v3/dictionary/isocountry', {
             headers: { Authorization: `Bearer ${honestSignToken}` },
         });
-        console.log(a);
-        return a;
     }
 
     // 3.3.4

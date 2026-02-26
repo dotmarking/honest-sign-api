@@ -8,9 +8,6 @@ import { CardService } from './card.service';
             useFactory: () => ({
                 baseURL: 'https://апи.национальный-каталог.рф',
                 timeout: 5000,
-                headers: {
-                    'Content-Type': 'application/json',
-                },
             }),
         }),
     ],
