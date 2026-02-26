@@ -15,5 +15,6 @@ import { CisService } from './cis.service';
         }),
     ],
     providers: [CisService],
+    exports: [CisService],
 })
 export class CisModule {}
