@@ -11,6 +11,7 @@ export class CardApiModule {
                 HttpModule.register({
                     baseURL: 'https://апи.национальный-каталог.рф',
                     timeout: 5000,
+                    global: true,
                 }),
             ],
             providers: [CardApiService, HttpService],
