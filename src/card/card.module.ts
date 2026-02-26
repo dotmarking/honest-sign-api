@@ -13,6 +13,6 @@ import { CardApiService } from './card.service';
         }),
     ],
     providers: [CardApiService],
-    exports: [CardApiService],
+    exports: [CardApiService, HttpModule],
 })
 export class CardApiModule {}
