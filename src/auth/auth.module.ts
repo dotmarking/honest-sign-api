@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { HttpModule } from '@nestjs/axios';
-import { AuthService } from './auth.service';
+import { AuthApiService } from './auth.service';
 
 @Module({
     imports: [
@@ -14,7 +14,7 @@ import { AuthService } from './auth.service';
             }),
         }),
     ],
-    providers: [AuthService],
-    exports: [AuthService],
+    providers: [AuthApiService],
+    exports: [AuthApiService],
 })
-export class AuthModule {}
+export class AuthApiModule {}

@@ -22,7 +22,7 @@ import {
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class CardService {
+export class CardApiService {
     public constructor(private readonly httpService: HttpService) {}
 
     // 3.2.1

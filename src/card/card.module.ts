@@ -1,6 +1,6 @@
 import { HttpModule } from '@nestjs/axios';
 import { Module } from '@nestjs/common';
-import { CardService } from './card.service';
+import { CardApiService } from './card.service';
 
 @Module({
     imports: [
@@ -11,7 +11,7 @@ import { CardService } from './card.service';
             }),
         }),
     ],
-    providers: [CardService],
-    exports: [CardService],
+    providers: [CardApiService],
+    exports: [CardApiService],
 })
-export class CardsModule {}
+export class CardApiModule {}

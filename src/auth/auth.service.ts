@@ -9,7 +9,7 @@ import type {
 } from './interfaces/response/auth.interface';
 
 @Injectable()
-export class AuthService {
+export class AuthApiService {
     public constructor(private readonly httpService: HttpService) {}
 
     public async getAuthKey() {

@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { HttpModule } from '@nestjs/axios';
-import { CisService } from './cis.service';
+import { CisApiService } from './cis.service';
 
 @Module({
     imports: [
@@ -14,7 +14,7 @@ import { CisService } from './cis.service';
             }),
         }),
     ],
-    providers: [CisService],
-    exports: [CisService],
+    providers: [CisApiService],
+    exports: [CisApiService],
 })
-export class CisModule {}
+export class CisApiModule {}
