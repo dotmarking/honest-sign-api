@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { HttpModule } from '@nestjs/axios';
-import { AuthApiService } from './auth.service';
+import { HonestSignAuthService } from './honest-sign-auth.service';
 
 @Module({
     imports: [
@@ -8,13 +8,10 @@ import { AuthApiService } from './auth.service';
             useFactory: () => ({
                 baseURL: 'https://markirovka.crpt.ru',
                 timeout: 5000,
-                headers: {
-                    'Content-Type': 'application/json',
-                },
             }),
         }),
     ],
-    providers: [AuthApiService],
-    exports: [AuthApiService],
+    providers: [HonestSignAuthService],
+    exports: [HonestSignAuthService],
 })
-export class AuthApiModule {}
+export class HonestSignAuthModule {}

@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { HttpModule } from '@nestjs/axios';
-import { CisApiService } from './cis.service';
+import { HonestSignCisService } from './honest-sign-cis.service';
 
 @Module({
     imports: [
@@ -8,13 +8,10 @@ import { CisApiService } from './cis.service';
             useFactory: () => ({
                 baseURL: 'https://suzgrid.crpt.ru',
                 timeout: 5000,
-                headers: {
-                    'Content-Type': 'application/json',
-                },
             }),
         }),
     ],
-    providers: [CisApiService],
-    exports: [CisApiService],
+    providers: [HonestSignCisService],
+    exports: [HonestSignCisService],
 })
-export class CisApiModule {}
+export class HonestSignCisModule {}

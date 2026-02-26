@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import type { GetCises, GetCisesInfo, GetOrderCises } from './interfaces/response/cis.interface';
 
 @Injectable()
-export class CisApiService {
+export class HonestSignCisService {
     public constructor(private readonly httpService: HttpService) {}
 
     public getOrderCises(filter: object, omsId: string, omsAccessToken: string) {

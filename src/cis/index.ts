@@ -1,2 +1,2 @@
-export * from './cis.module';
-export * from './cis.service';
+export * from './honest-sign-cis.module';
+export * from './honest-sign-cis.service';

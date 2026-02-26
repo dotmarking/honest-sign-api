@@ -1,14 +1,15 @@
 import { HttpModule } from '@nestjs/axios';
 import { Module } from '@nestjs/common';
-import { CardApiService } from './api-card.service';
+import { HonestSignCardService } from './honest-sign-card.service';
 
 @Module({
     imports: [
         HttpModule.register({
             baseURL: 'https://апи.национальный-каталог.рф',
+            timeout: 5000,
         }),
     ],
-    providers: [CardApiService],
-    exports: [CardApiService],
+    providers: [HonestSignCardService],
+    exports: [HonestSignCardService],
 })
-export class CardApiModule {}
+export class HonestSignCardModule {}

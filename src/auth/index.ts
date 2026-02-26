@@ -1,2 +1,2 @@
-export * from './auth.module';
-export * from './auth.service';
+export * from './honest-sign-auth.module';
+export * from './honest-sign-auth.service';

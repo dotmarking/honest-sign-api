@@ -1,2 +1,2 @@
-export * from './api-card.module';
-export * from './api-card.service';
+export * from './honset-sign-card.module';
+export * from './honest-sign-card.service';
