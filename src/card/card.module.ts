@@ -5,7 +5,7 @@ import { CardApiService } from './card.service';
 @Module({
     imports: [
         HttpModule.register({
-            baseURL: 'https://апи.национальный-каталог.рф',
+            baseURL: 'xn--https://-86g4ftd.xn----7sbabas4ajkhfocclk9d3cvfsa.xn--p1ai',
             timeout: 5000,
         }),
     ],
