@@ -1,4 +1,4 @@
-import { HttpModule } from '@nestjs/axios';
+import { HttpModule, HttpService } from '@nestjs/axios';
 import { DynamicModule, Module } from '@nestjs/common';
 import { CardApiService } from './card.service';
 
@@ -13,7 +13,7 @@ export class CardApiModule {
                     timeout: 5000,
                 }),
             ],
-            providers: [CardApiService],
+            providers: [CardApiService, HttpService],
             exports: [CardApiService],
         };
     }
