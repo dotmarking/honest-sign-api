@@ -82,9 +82,12 @@ export class CardService {
 
     // 3.3.3
     public getProductionCountries(honestSignToken: string) {
-        return this.httpService.get<GetProductionCountries>('/v3/dictionary/isocountry', {
+        console.log(honestSignToken);
+        const a = this.httpService.get<GetProductionCountries>('/v3/dictionary/isocountry', {
             headers: { Authorization: `Bearer ${honestSignToken}` },
         });
+        console.log(a);
+        return a;
     }
 
     // 3.3.4
