@@ -1,4 +1,4 @@
-export const allStatusTranslations: Record<string, string> = {
+export const allStatusTranslations = {
     EMITTED: 'Эмитирован',
     APPLIED: 'Нанесён',
     INTRODUCED: 'В обороте',
@@ -78,11 +78,13 @@ export const allStatusTranslations: Record<string, string> = {
     19: 'В аннулировании отказано',
 } as const;
 
-export const invalidStatusTranslations: Record<string, string> = {
-    WRITTEN_OFF: 'Списан',
-    RETIRED: 'Выбыл',
-    WITHDRAWN: 'Выбыл',
-    DISAGGREGATION: 'Расформирован',
-    DISAGGREGATED: 'Расформирован',
-    APPLIED_NOT_PAID: 'Не оплачен',
-} as const;
+export type StatusKey = keyof typeof allStatusTranslations;
+
+export const invalidStatus: StatusKey[] = [
+    'RETIRED',
+    'WITHDRAWN',
+    'DISAGGREGATION',
+    'WRITTEN_OFF',
+    'DISAGGREGATED',
+    'APPLIED_NOT_PAID',
+];
