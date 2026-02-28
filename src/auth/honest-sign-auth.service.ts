@@ -12,23 +12,23 @@ import type {
 export class HonestSignAuthService {
     public constructor(private readonly httpService: HttpService) {}
 
-    public async getAuthKey() {
+    public getAuthKey() {
         return this.httpService.get<GetAuthKeyResponse>('/api/v3/true-api/auth/key');
     }
 
-    public async getOrganisations(credentials: LoginCredentials) {
+    public getOrganisations(credentials: LoginCredentials) {
         return this.httpService.post<GetOrganisationsResponse>('/bff-elk/v1/united-auth/login', {
             kep: credentials,
         });
     }
 
-    public async login(credentials: LoginCredentials) {
+    public login(credentials: LoginCredentials) {
         return this.httpService.post<LoginResponse>('/bff-elk/v1/united-auth/login', {
             kep: credentials,
         });
     }
 
-    public async loginOMS(credentials: LoginOMSCredentials, omsConnection: string) {
+    public loginOMS(credentials: LoginOMSCredentials, omsConnection: string) {
         return this.httpService.post<LoginOMSResponse>(
             `/api/v3/true-api/auth/simpleSignIn/${omsConnection}`,
             {

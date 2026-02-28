@@ -1,12 +1,50 @@
 export interface CreateCardRequest {
-    good_id: number;
-    gtin: string;
+    good_id?: number;
+    gtin?: string;
     is_set: boolean;
     is_tech_gtin: boolean;
-    good_name: string;
+    good_name?: string;
     is_kit: string;
-    tnved: string;
-    brand: string;
+    tnved?: string;
+    brand?: string;
+    moderation?: boolean;
+    set_gtins?: [
+        {
+            gtin: string;
+            quantity?: number;
+        },
+    ];
+    identified_by?: [
+        {
+            type: string;
+            value: string;
+            level: string;
+            multiplier: number;
+            unit: string;
+        },
+    ];
+    categories?: [
+        {
+            cat_id: number;
+        },
+    ];
+    good_attrs?: [
+        {
+            attr_id?: string;
+            attr_value?: string;
+            attr_value_type?: string;
+            gtin?: string;
+            delete?: boolean;
+        },
+    ];
+    good_images?: [
+        {
+            photo_type: string;
+            photo_url: string;
+            identifier?: string;
+            identifier_type?: string;
+        },
+    ];
 }
 
 export interface SendCardForModerationRequest {

@@ -12,6 +12,7 @@ import {
 } from './interface/response/card.interface';
 import {
     CheckPermitExistsRequest,
+    CreateCardRequest,
     GetAttributesRequest,
     GetBrandsListRequest,
     GetCardsInfoRequest,
@@ -34,7 +35,7 @@ export class HonestSignCardService {
     }
 
     // 3.2.2
-    public createCard(card: object, honestSignToken: string) {
+    public createCard(card: CreateCardRequest, honestSignToken: string) {
         return this.httpService.post<CreateCardResponse>(
             '/v3/feed',
             { ...card },
