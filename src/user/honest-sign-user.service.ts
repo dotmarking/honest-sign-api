@@ -1,6 +1,6 @@
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
-import { GetEdoIdResponse } from './response/honest-sign-user.interface';
+import { GetEdoIdResponse } from './types';
 
 @Injectable()
 export class HonestSignUserService {

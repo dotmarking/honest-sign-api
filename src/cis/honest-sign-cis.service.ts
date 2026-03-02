@@ -6,12 +6,10 @@ import type {
     GetCisesInfoResponse,
     GetEmissionOrderCisResponse,
     GetEmissionOrdersResponse,
-} from './interfaces/response/cis.interface';
-import {
     CreateEmissionOrderRequest,
     GetCisesListRequest,
     GetEmissionOrderCisRequest,
-} from './interfaces/request/cis.interface';
+} from './types';
 
 @Injectable()
 export class HonestSignCisService {

@@ -9,8 +9,6 @@ import {
     GetOwnerCardsInfoRespnose,
     GetProductionCountries,
     SendCardForModerationResponse,
-} from './interface/response/card.interface';
-import {
     CheckPermitExistsRequest,
     CreateCardRequest,
     GetAttributesRequest,
@@ -19,7 +17,7 @@ import {
     GetCategoryTreeRequest,
     GetOwnerCardsInfoRequest,
     SendCardForModerationRequest,
-} from './interface/request/card.interface';
+} from './types';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
