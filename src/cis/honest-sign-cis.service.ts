@@ -1,5 +1,7 @@
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
+import { catchError } from 'rxjs/operators';
+import { AxiosError } from 'axios';
 import type {
     CreateEmissionOrderResponse,
     GetCisesList,
@@ -10,6 +12,7 @@ import type {
     GetCisesListRequest,
     GetEmissionOrderCisRequest,
 } from './types';
+import { RpcException } from '@nestjs/microservices';
 
 @Injectable()
 export class HonestSignCisService {
@@ -53,13 +56,20 @@ export class HonestSignCisService {
 
     // 5.1.1
     public getCisesList(filter: GetCisesListRequest, omsAccessToken: string) {
-        return this.httpService.post<GetCisesList>(
-            'https://markirovka.crpt.ru/api/v4/true-api/cises/search',
-            filter,
-            {
+        return this.httpService
+            .post<GetCisesList>('https://markirovka.crpt.ru/api/v4/true-api/cises/search', filter, {
                 headers: { Authorization: `Bearer ${omsAccessToken}` },
-            },
-        );
+            })
+            .pipe(
+                catchError((error: any) => {
+                    throw new RpcException({
+                        code: 13,
+                        message:
+                            error.response.data.errorMessage ||
+                            'Ошибка при работе с честным знаком',
+                    });
+                }),
+            );
     }
 
     // 5.1.2
