@@ -1,6 +1,6 @@
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { AxiosError } from 'axios';
 import type {
     CreateEmissionOrderResponse,
@@ -61,12 +61,10 @@ export class HonestSignCisService {
                 headers: { Authorization: `Bearer ${omsAccessToken}` },
             })
             .pipe(
-                catchError((error: any) => {
+                map((response) => {
                     throw new RpcException({
                         code: 13,
-                        message:
-                            error.response.data.errorMessage ||
-                            'Ошибка при работе с честным знаком',
+                        message: response.data.errorMessage || 'Ошибка при работе с честным знаком',
                     });
                 }),
             );

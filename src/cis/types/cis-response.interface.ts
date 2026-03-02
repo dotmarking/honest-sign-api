@@ -105,6 +105,7 @@ export interface GetCisesList {
             error_message?: string;
         },
     ];
+    errorMessage?: string;
 }
 
 export interface GetCisesInfoResponse {
