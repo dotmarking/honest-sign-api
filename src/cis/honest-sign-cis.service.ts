@@ -72,12 +72,21 @@ export class HonestSignCisService {
 
     // 5.1.2
     public getCisesInfo(cises: string[], omsAccessToken: string) {
-        return this.httpService.post<GetCisesInfoResponse>(
-            'https://markirovka.crpt.ru/api/v3/true-api/cises/info',
-            cises,
-            {
-                headers: { Authorization: `Bearer ${omsAccessToken}` },
-            },
-        );
+        return this.httpService
+            .post<GetCisesInfoResponse>(
+                'https://markirovka.crpt.ru/api/v3/true-api/cises/info',
+                cises,
+                {
+                    headers: { Authorization: `Bearer ${omsAccessToken}` },
+                },
+            )
+            .pipe(
+                map((response) => {
+                    throw new RpcException({
+                        code: 13,
+                        message: response.data.errorMessage || 'Ошибка при работе с честным знаком',
+                    });
+                }),
+            );
     }
 }
