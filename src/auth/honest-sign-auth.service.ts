@@ -1,12 +1,12 @@
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
-import { LoginCredentials, LoginOMSCredentials } from './interfaces/request/auth.interface';
+import { LoginCredentials, LoginOMSCredentials } from './types/auth-request.interface';
 import type {
     GetAuthKeyResponse,
     GetOrganisationsResponse,
     LoginOMSResponse,
     LoginResponse,
-} from './interfaces/response/auth.interface';
+} from './types';
 
 @Injectable()
 export class HonestSignAuthService {
