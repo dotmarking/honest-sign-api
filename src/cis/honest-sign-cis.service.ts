@@ -1,7 +1,5 @@
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
-import { catchError, map } from 'rxjs/operators';
-import { AxiosError } from 'axios';
 import type {
     CreateEmissionOrderResponse,
     GetCisesList,
@@ -56,37 +54,23 @@ export class HonestSignCisService {
 
     // 5.1.1
     public getCisesList(filter: GetCisesListRequest, omsAccessToken: string) {
-        return this.httpService
-            .post<GetCisesList>('https://markirovka.crpt.ru/api/v4/true-api/cises/search', filter, {
+        return this.httpService.post<GetCisesList>(
+            'https://markirovka.crpt.ru/api/v4/true-api/cises/search',
+            filter,
+            {
                 headers: { Authorization: `Bearer ${omsAccessToken}` },
-            })
-            .pipe(
-                map((response) => {
-                    throw new RpcException({
-                        code: 13,
-                        message: response.data.errorMessage || 'Ошибка при работе с честным знаком',
-                    });
-                }),
-            );
+            },
+        );
     }
 
     // 5.1.2
     public getCisesInfo(cises: string[], omsAccessToken: string) {
-        return this.httpService
-            .post<GetCisesInfoResponse>(
-                'https://markirovka.crpt.ru/api/v3/true-api/cises/info',
-                cises,
-                {
-                    headers: { Authorization: `Bearer ${omsAccessToken}` },
-                },
-            )
-            .pipe(
-                map((response) => {
-                    throw new RpcException({
-                        code: 13,
-                        message: response.data.errorMessage || 'Ошибка при работе с честным знаком',
-                    });
-                }),
-            );
+        return this.httpService.post<GetCisesInfoResponse>(
+            'https://markirovka.crpt.ru/api/v3/true-api/cises/info',
+            cises,
+            {
+                headers: { Authorization: `Bearer ${omsAccessToken}` },
+            },
+        );
     }
 }

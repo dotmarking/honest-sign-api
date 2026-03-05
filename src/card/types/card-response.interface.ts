@@ -188,3 +188,9 @@ export interface CheckPermitExistsResponse {
         },
     ];
 }
+
+//5.6.1
+export interface GetProductInfoByGtins {}
+
+//5.6.2
+export interface GetOwnerProductGtins {}

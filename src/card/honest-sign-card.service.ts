@@ -17,6 +17,7 @@ import {
     GetCategoryTreeRequest,
     GetOwnerCardsInfoRequest,
     SendCardForModerationRequest,
+    GetOwnerProductGtins,
 } from './types';
 import { Injectable } from '@nestjs/common';
 
@@ -47,6 +48,21 @@ export class HonestSignCardService {
             params,
             headers: { Authorization: `Bearer ${honestSignToken}` },
         });
+    }
+
+    // 5.6.2
+    /**
+     * Метод возвращает список кодов товаров с возможностью указания параметров фильтрации в запросе.
+     * @returns Observable<>
+     */
+    public getOwnerProductGtins(honestSignToken: string) {
+        return this.httpService.get<GetOwnerProductGtins>(
+            'https://markirovka.crpt.ru/api/v4/true-api/product/gtin',
+            {
+                params,
+                headers: { Authorization: `Bearer ${honestSignToken}` },
+            },
+        );
     }
 
     // 3.1.1
