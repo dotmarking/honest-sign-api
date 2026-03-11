@@ -807,7 +807,7 @@ export interface CreateOrUpdateProductBody {
     is_set: boolean;
     is_tech_gtin: boolean;
     good_name?: string;
-    is_kit: string;
+    is_kit: boolean;
     tnved?: string;
     brand?: string;
     moderation?: boolean;

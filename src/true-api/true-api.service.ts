@@ -1,4 +1,5 @@
 import { HttpService } from '@nestjs/axios';
+import { Injectable } from '@nestjs/common';
 import {
     CreateOrUpdateProductBody,
     CreateOrUpdateProductResponse,
@@ -33,6 +34,7 @@ import {
     VerificationCodesResponse,
 } from './types/true-api.interface';
 
+@Injectable()
 export class TrueApiService {
     public constructor(private readonly httpService: HttpService) {}
 
@@ -41,7 +43,7 @@ export class TrueApiService {
      * @description Метод используется для получения UUID (идентификатора текущей аутентификации) и сгенерированных случайных данных,
      * которые в дальнейшем подписываются участником оборота товаров и передаются в метод получения ключа сессии при единой аутентификации для дальнейшего получения токена по УКЭП
      */
-    public async getAuthKey() {
+    public getAuthKey() {
         return this.httpService.get<GetAuthKeyResponse>('/api/v3/true-api/auth/key');
     }
 
@@ -50,7 +52,7 @@ export class TrueApiService {
      * @description Метод предназначен для получения значения баланса лицевых счетов, запрашиваемого УОТ по каждой товарной группе.
      * Выполнить запрос можно только для получения собственного баланса денежных средств.
      */
-    public async getAllProductGroupsBalance(token: HonestSignAccessToken) {
+    public getAllProductGroupsBalance(token: HonestSignAccessToken) {
         return this.httpService.get<GetProductGroupBalanceResponse[] | ErrorMessage>(
             '/api/v3/true-api/elk/product-groups/balance/all',
             { headers: { Authorization: `Bearer: ${token}` } },
@@ -62,7 +64,7 @@ export class TrueApiService {
      * @description Метод предназначен для получения значения баланса лицевого счета, запрашиваемого УОТ по одной товарной группы.
      * Выполнить запрос можно только для получения информации о собственном балансе денежных средств.
      */
-    public async getProductGroupBalance(token: HonestSignAccessToken, productGroupId: number) {
+    public getProductGroupBalance(token: HonestSignAccessToken, productGroupId: number) {
         return this.httpService.get<GetProductGroupBalanceResponse | ErrorMessage>(
             '/api/v3/true-api/elk/product-groups/balance',
             { headers: { Authorization: `Bearer: ${token}` }, params: productGroupId },

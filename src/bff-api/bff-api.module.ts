@@ -1,6 +1,6 @@
-import { Module } from '@nestjs/common';
-import { TrueApiService } from './true-api.service';
 import { HttpModule } from '@nestjs/axios';
+import { Module } from '@nestjs/common';
+import { BffApiService } from './bff-api.service';
 
 @Module({
     imports: [
@@ -9,7 +9,7 @@ import { HttpModule } from '@nestjs/axios';
             timeout: 5000,
         }),
     ],
-    providers: [TrueApiService],
-    exports: [TrueApiService],
+    providers: [BffApiService],
+    exports: [BffApiService],
 })
-export class TrueApiModule {}
+export class BffApiModule {}
