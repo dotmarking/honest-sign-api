@@ -59,13 +59,11 @@ export interface GetCisesFilter {
         producerInns?: string[];
         generalPackageTypes?: string[];
         turnoverTypes?: string[];
-        states?: [
-            {
-                status?: string;
-                statusExt?: string;
-                isStatusExtNull?: boolean;
-            },
-        ];
+        states?: Array<{
+            status?: string;
+            statusExt?: string;
+            isStatusExtNull?: boolean;
+        }>;
         tnVed?: string;
         tnVed10?: string;
         emissionTypes?: string[];
@@ -78,12 +76,10 @@ export interface GetCisesFilter {
         serviceProviderTypes?: string[];
         orderIds?: string[];
         partyNumber?: string;
-        mods?: [
-            {
-                kpp: string;
-                fiasId: string;
-            },
-        ];
+        mods?: Array<{
+            kpp: string;
+            fiasId: string;
+        }>;
         manufacturerInns?: string;
         importerInns?: string;
     };
@@ -135,12 +131,10 @@ export interface GetCisesResponse {
             manufacturerInn?: string;
             importerInn?: string;
             productWeight?: number;
-            expiration?: [
-                {
-                    expirationStorageDate?: string; // yyyy-MM-ddTHH:mm:ss.SSSZ
-                    storageConditionId?: string;
-                },
-            ];
+            expiration?: Array<{
+                expirationStorageDate?: string; // yyyy-MM-ddTHH:mm:ss.SSSZ
+                storageConditionId?: string;
+            }>;
             emissionCountryCode?: number;
             exportCountryCode?: number;
             orderId?: string;
@@ -184,16 +178,14 @@ export interface GetCisesPublicInfoResponse {
             statusEx?: string;
             markWithdraw?: boolean;
             turnoverType?: string;
-            certDoc?: [
-                {
-                    type?: string;
-                    number?: string;
-                    date?: string;
-                    wellNumber?: string;
-                    indx?: number;
-                    statusGroup?: number;
-                },
-            ];
+            certDoc?: Array<{
+                type?: string;
+                number?: string;
+                date?: string;
+                wellNumber?: string;
+                indx?: number;
+                statusGroup?: number;
+            }>;
             certDocRequirementDetails?: {
                 notRequiredReason?: string;
                 isRequired?: boolean;
@@ -216,13 +208,11 @@ export interface GetCisesPublicInfoResponse {
                 rest?: number;
                 correctRest?: boolean;
             };
-            expirations?: [
-                {
-                    expirationStorageDate?: string;
-                    storageConditionId?: number;
-                    storageConditionName?: string;
-                },
-            ];
+            expirations?: Array<{
+                expirationStorageDate?: string;
+                storageConditionId?: number;
+                storageConditionName?: string;
+            }>;
             withdrawReason?: string;
             withdrawReasonOther?: string;
             connectDate?: string;
@@ -237,12 +227,10 @@ export interface GetCisesPublicInfoResponse {
                 fiasId?: string;
                 address?: string;
             };
-            licences?: [
-                {
-                    licenceNumber?: string;
-                    licenceDate?: string;
-                },
-            ];
+            licences?: Array<{
+                licenceNumber?: string;
+                licenceDate?: string;
+            }>;
             batchNumber?: string;
             manufacturerSerialNumber?: string;
             partyNumber?: string;
@@ -404,12 +392,10 @@ export interface GetProductInfoByGtinResponse {
                 address?: string[];
             };
             isSet?: boolean;
-            setGtin?: [
-                {
-                    gtin?: string;
-                    quantity?: number;
-                },
-            ];
+            setGtin?: Array<{
+                gtin?: string;
+                quantity?: number;
+            }>;
             level?: string;
             mainGtin?: number;
             multiplier?: number;
@@ -424,24 +410,22 @@ export interface GetProductInfoByGtinResponse {
             standardNumber?: string;
             tnVedCode?: string;
             tnVedCode10?: string;
-            certDocList?: [
-                {
-                    type?: string;
-                    number?: string;
+            certDocList?: Array<{
+                type?: string;
+                number?: string;
 
-                    //Формат: yyyy-MM-dd
-                    date?: string;
+                //Формат: yyyy-MM-dd
+                date?: string;
 
-                    //Формат: yyyy-MM-dd
-                    dateTo?: string;
-                    series?: string;
-                    guid?: string;
-                    active?: boolean;
-                    unlimited?: string;
-                    errorCode?: number;
-                    errorMessage?: string;
-                },
-            ];
+                //Формат: yyyy-MM-dd
+                dateTo?: string;
+                series?: string;
+                guid?: string;
+                active?: boolean;
+                unlimited?: string;
+                errorCode?: number;
+                errorMessage?: string;
+            }>;
             authDocNumber?: string;
             sAutoAttachPermitsInfoDetails?: {
                 value?: string;
@@ -459,12 +443,10 @@ export interface GetProductInfoByGtinResponse {
             methodProduction?: string;
             releaseForm?: string;
             storageConditions?: string;
-            storageCondition?: [
-                {
-                    storageConditionName?: string;
-                    storageConditionId?: number;
-                },
-            ];
+            storageCondition?: Array<{
+                storageConditionName?: string;
+                storageConditionId?: number;
+            }>;
             isVarQuantity?: boolean;
             volumeWeight?: string;
             weightMin?: string;
@@ -485,15 +467,13 @@ export interface GetProductInfoByGtinResponse {
                 stateRegistrationCertificate?: string[];
                 vetRegistrationCertificate?: string[];
             };
-            mc?: [
-                {
-                    mcName?: string;
-                    mcTariff?: number;
-                    mcGtinCop?: number;
-                    dateFrom?: string;
-                    dateTo?: string;
-                },
-            ];
+            mc?: Array<{
+                mcName?: string;
+                mcTariff?: number;
+                mcGtinCop?: number;
+                dateFrom?: string;
+                dateTo?: string;
+            }>;
         },
     ];
     total: number;
@@ -517,12 +497,10 @@ export interface GetOwnerProductGtinsResponse {
             isSet: boolean;
             permittedInns?: string[];
             setDescription?: string;
-            setGtin?: [
-                {
-                    gtin?: string;
-                    quantity?: number;
-                },
-            ];
+            setGtin?: Array<{
+                gtin?: string;
+                quantity?: number;
+            }>;
         },
     ];
     total: number;
@@ -559,19 +537,17 @@ export interface GetAttributesResponse {
             attr_group_name: string;
             attr_field_type?: string;
             attr_value_type?: [];
-            dependent_attributes?: [
-                {
-                    value: string;
-                    atters: [
-                        {
-                            attr_id?: number;
-                            first_layer: boolean;
-                            second_layer: boolean;
-                            attr_type?: string;
-                        },
-                    ];
-                },
-            ];
+            dependent_attributes?: Array<{
+                value: string;
+                atters: [
+                    {
+                        attr_id?: number;
+                        first_layer: boolean;
+                        second_layer: boolean;
+                        attr_type?: string;
+                    },
+                ];
+            }>;
             first_layer: boolean;
             second_layer: boolean;
             attr_type?: string;
@@ -588,12 +564,10 @@ export interface GetBrandsParams {
 }
 export interface GetBrandsResponse {
     apiversion: number;
-    result?: [
-        {
-            brand_id: number;
-            name: string;
-        },
-    ];
+    result?: Array<{
+        brand_id: number;
+        name: string;
+    }>;
 }
 
 //10.7
@@ -811,43 +785,33 @@ export interface CreateOrUpdateProductBody {
     tnved?: string;
     brand?: string;
     moderation?: boolean;
-    set_gtins?: [
-        {
-            gtin: string;
-            quantity?: number;
-        },
-    ];
-    identified_by?: [
-        {
-            type: string;
-            value: string;
-            level: string;
-            multiplier: number;
-            unit: string;
-        },
-    ];
-    categories?: [
-        {
-            cat_id: number;
-        },
-    ];
-    good_attrs?: [
-        {
-            attr_id?: string;
-            attr_value?: string;
-            attr_value_type?: string;
-            gtin?: string;
-            delete?: boolean;
-        },
-    ];
-    good_images?: [
-        {
-            photo_type: PhotoType;
-            photo_url: string;
-            identifier?: string;
-            identifier_type?: string;
-        },
-    ];
+    set_gtins?: Array<{
+        gtin: string;
+        quantity?: number;
+    }>;
+    identified_by?: Array<{
+        type: string;
+        value: string;
+        level: string;
+        multiplier: number;
+        unit: string;
+    }>;
+    categories?: Array<{
+        cat_id: number;
+    }>;
+    good_attrs?: Array<{
+        attr_id?: string;
+        attr_value?: string;
+        attr_value_type?: string;
+        gtin?: string;
+        delete?: boolean;
+    }>;
+    good_images?: Array<{
+        photo_type: PhotoType;
+        photo_url: string;
+        identifier?: string;
+        identifier_type?: string;
+    }>;
 }
 export interface CreateOrUpdateProductResponse {
     apiversion: number;
