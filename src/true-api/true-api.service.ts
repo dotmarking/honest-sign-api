@@ -32,6 +32,7 @@ import {
     SignProductCardResponse,
     VerificationCodesBody,
     VerificationCodesResponse,
+    GenerateGtinsResponse,
 } from './types/true-api.interface';
 
 @Injectable()
@@ -267,7 +268,7 @@ export class TrueApiService {
      * число уже сгенерированных кодов товаров, список новых кодов товаров.
      */
     public generateGtins(token: HonestSignAccessToken, params: GenerateGtinsParams) {
-        return this.httpService.get('/api/v3/true-api/nk/generate-gtins', {
+        return this.httpService.get<GenerateGtinsResponse>('/api/v3/true-api/nk/generate-gtins', {
             headers: { Authorization: `Bearer ${token}` },
             params,
         });
