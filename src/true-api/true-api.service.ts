@@ -55,7 +55,7 @@ export class TrueApiService {
     public getAllProductGroupsBalance(token: HonestSignAccessToken) {
         return this.httpService.get<GetProductGroupBalanceResponse[] | ErrorMessage>(
             '/api/v3/true-api/elk/product-groups/balance/all',
-            { headers: { Authorization: `Bearer: ${token}` } },
+            { headers: { Authorization: `Bearer ${token}` } },
         );
     }
 
@@ -67,7 +67,7 @@ export class TrueApiService {
     public getProductGroupBalance(token: HonestSignAccessToken, productGroupId: number) {
         return this.httpService.get<GetProductGroupBalanceResponse | ErrorMessage>(
             '/api/v3/true-api/elk/product-groups/balance',
-            { headers: { Authorization: `Bearer: ${token}` }, params: productGroupId },
+            { headers: { Authorization: `Bearer ${token}` }, params: productGroupId },
         );
     }
 
@@ -193,7 +193,7 @@ export class TrueApiService {
      */
     public getAttributes(token: HonestSignAccessToken, params?: GetAttributesParams) {
         return this.httpService.get<GetCategoryTreeResponse>('/api/v3/true-api/nk/attributes', {
-            headers: { Authorization: `Bearer: ${token}` },
+            headers: { Authorization: `Bearer ${token}` },
             params,
         });
     }
@@ -204,7 +204,7 @@ export class TrueApiService {
      */
     public getBrands(token: HonestSignAccessToken, params?: GetBrandsParams) {
         return this.httpService.get<GetBrandsResponse>('/api/v3/true-api/nk/attributes', {
-            headers: { Authorization: `Bearer: ${token}` },
+            headers: { Authorization: `Bearer ${token}` },
             params,
         });
     }
@@ -215,7 +215,7 @@ export class TrueApiService {
      */
     public getCategoryTree(token: HonestSignAccessToken, params?: GetCategoryTreeParams) {
         return this.httpService.get<GetCategoryTreeResponse>('/api/v3/true-api/nk/categories', {
-            headers: { Authorization: `Bearer: ${token}` },
+            headers: { Authorization: `Bearer ${token}` },
             params,
         });
     }
@@ -226,7 +226,7 @@ export class TrueApiService {
      */
     public getFullProductInfo(token: HonestSignAccessToken, params: GetProductInfoParams) {
         return this.httpService.get('/api/v3/true-api/nk/product', {
-            headers: { Authorization: `Bearer: ${token}` },
+            headers: { Authorization: `Bearer ${token}` },
             params,
         });
     }
@@ -237,7 +237,7 @@ export class TrueApiService {
      */
     public getShortProductInfo(token: HonestSignAccessToken, params: GetProductInfoParams) {
         return this.httpService.get('/api/v3/true-api/nk/short-product', {
-            headers: { Authorization: `Bearer: ${token}` },
+            headers: { Authorization: `Bearer ${token}` },
             params,
         });
     }
@@ -255,7 +255,7 @@ export class TrueApiService {
             '/api/v3/true-api/nk/feed-product-sign-pkcs',
             body,
             {
-                headers: { Authorization: `Bearer: ${token}` },
+                headers: { Authorization: `Bearer ${token}` },
             },
         );
     }
@@ -268,7 +268,7 @@ export class TrueApiService {
      */
     public generateGtins(token: HonestSignAccessToken, params: GenerateGtinsParams) {
         return this.httpService.get('/api/v3/true-api/nk/generate-gtins', {
-            headers: { Authorization: `Bearer: ${token}` },
+            headers: { Authorization: `Bearer ${token}` },
             params,
         });
     }
@@ -287,7 +287,7 @@ export class TrueApiService {
             '/api/v3/true-api/nk/feed',
             body,
             {
-                headers: { Authorization: `Bearer: ${token}` },
+                headers: { Authorization: `Bearer ${token}` },
                 params,
             },
         );
@@ -304,7 +304,7 @@ export class TrueApiService {
         return this.httpService.get<SendCardForModerationResponse>(
             '/api/v3/true-api/nk/feed-moderation',
             {
-                headers: { Authorization: `Bearer: ${token}` },
+                headers: { Authorization: `Bearer ${token}` },
                 params,
             },
         );

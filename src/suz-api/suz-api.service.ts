@@ -24,7 +24,7 @@ export class SuzApiService {
         body: CreateEmissionOrderBody,
     ) {
         return this.httpService.post<CreateEmissionOrderResponse>('/api/v3/order', body, {
-            headers: { Authorization: `Bearer: ${token}` },
+            headers: { Authorization: `Bearer ${token}` },
             params: omsId,
         });
     }
@@ -36,7 +36,7 @@ export class SuzApiService {
      */
     public getEmissionOrders(token: OmsAccessToken, omsId: string) {
         return this.httpService.get<GetEmissionOrdersResponse>('/api/v3/order', {
-            headers: { Authorization: `Bearer: ${token}` },
+            headers: { Authorization: `Bearer ${token}` },
             params: omsId,
         });
     }
@@ -50,7 +50,7 @@ export class SuzApiService {
         params: GetCodesFromEmissionOrderParams,
     ) {
         return this.httpService.get<GetCodesFromEmissionOrderResponse>('/api/v3/order/status', {
-            headers: { Authorization: `Bearer: ${token}` },
+            headers: { Authorization: `Bearer ${token}` },
             params,
         });
     }
@@ -68,7 +68,7 @@ export class SuzApiService {
         return this.httpService.get<GetCodesFromEmissionOrderResponse>(
             '/api/v3/order/codes/retry',
             {
-                headers: { Authorization: `Bearer: ${token}` },
+                headers: { Authorization: `Bearer ${token}` },
                 params,
             },
         );
