@@ -203,7 +203,7 @@ export class TrueApiService {
      * @description Метод предназначен для получения списка торговых марок. При отправке ID торговой сети в ответе возвращаются данные о брендах.
      */
     public getBrands(token: HonestSignAccessToken, params?: GetBrandsParams) {
-        return this.httpService.get<GetBrandsResponse>('/api/v3/true-api/nk/attributes', {
+        return this.httpService.get<GetBrandsResponse>('/api/v3/true-api/nk/brands', {
             headers: { Authorization: `Bearer ${token}` },
             params,
         });
