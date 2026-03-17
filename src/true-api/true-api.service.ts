@@ -33,6 +33,8 @@ import {
     VerificationCodesBody,
     VerificationCodesResponse,
     GenerateGtinsResponse,
+    GetFullProductInfoResponse,
+    GetShortProductInfoResponse,
 } from './types/true-api.interface';
 
 @Injectable()
@@ -226,7 +228,7 @@ export class TrueApiService {
      * @description Метод полную информацию о продукте (товаре) и требует обязательного указания одного из следующих параметров: идентификатор товара или код товара (штрих-код) товара.
      */
     public getFullProductInfo(token: HonestSignAccessToken, params: GetProductInfoParams) {
-        return this.httpService.get('/api/v3/true-api/nk/product', {
+        return this.httpService.get<GetFullProductInfoResponse>('/api/v3/true-api/nk/product', {
             headers: { Authorization: `Bearer ${token}` },
             params,
         });
@@ -237,10 +239,13 @@ export class TrueApiService {
      * @description Метод возвращает краткую информацию о продукте (товаре) и требует обязательного указания одного из следующих параметров: идентификатор товара или код товара (штрих-код) товара.
      */
     public getShortProductInfo(token: HonestSignAccessToken, params: GetProductInfoParams) {
-        return this.httpService.get('/api/v3/true-api/nk/short-product', {
-            headers: { Authorization: `Bearer ${token}` },
-            params,
-        });
+        return this.httpService.get<GetShortProductInfoResponse>(
+            '/api/v3/true-api/nk/short-product',
+            {
+                headers: { Authorization: `Bearer ${token}` },
+                params,
+            },
+        );
     }
 
     /**
