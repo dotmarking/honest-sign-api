@@ -6,4 +6,4 @@ import { SuzApiModule } from './suz-api';
     imports: [TrueApiModule, SuzApiModule],
     exports: [TrueApiModule, SuzApiModule],
 })
-export class HonestSignModule {}
+export class HonestSignAPIModule {}

@@ -1,3 +1,3 @@
 export * from './true-api';
 export * from './constants';
-export * from './honest-sign.module';
+export * from './honest-sign-api.module';
