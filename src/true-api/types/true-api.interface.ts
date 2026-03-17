@@ -765,10 +765,9 @@ export interface GenerateGtinsResponse {
             limit: number;
             usage: number;
         };
-        linit: string;
-        usage: string;
-        drafts?: [];
-        gtin: string;
+        drafts?: Array<{
+            gtin: string;
+        }>;
     };
 }
 
