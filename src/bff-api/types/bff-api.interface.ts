@@ -15,3 +15,7 @@ export interface LoginResponse {
     expires_in: number;
     token_type: string;
 }
+export interface LoginBody {
+    data: string;
+    mrdToken: boolean;
+}
