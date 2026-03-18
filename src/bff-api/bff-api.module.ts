@@ -5,7 +5,7 @@ import { BffApiService } from './bff-api.service';
 @Module({
     imports: [
         HttpModule.register({
-            baseURL: 'https://markirovka.crpt.ru',
+            baseURL: 'https://markirovka.crpt.ru/bff-elk',
             timeout: 5000,
         }),
     ],
